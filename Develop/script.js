@@ -5,12 +5,10 @@
 
 var pwordlengthimportance =''
 var specialcharimportance =''
-var password = ''
 var genpassword = ''
 var lengthpassword = ''
 var charpassword = ''
 var password2 = ''
-var randomnum = Math.floor(Math.random()*10)
 
 // *** FUNCTIONS *** //
 // General Password Generator
@@ -24,7 +22,7 @@ function gengenerator() {
 // Length Password Generator
 function lengthgenerator() {
   var options1 = 'abcdefghijklmnopqrstuvwxyz';
-  for (var i = 8; i <= 128; i++) {
+  for (i = 8; i<=128; i++) {
     lengthpassword += options1.charAt(Math.floor(Math.random()*options1.length));
   };
 };
@@ -41,18 +39,25 @@ function chargenerator() {
 function password2generator() {
   var options3 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()'
   for (var i = 8; i <= 128; i++) {
-    charpassword += options3.charAt(Math.floor(Math.random()*options3.length));
+    password2 += options3.charAt(Math.floor(Math.random()*options3.length));
   }
 }
 
+// // How long would you like your password?
+// if (pwordlengthimportance === 'yes') {
+//   lengthchoice = prompt(`How long would you like your password to be? (Please input a number value between 8 and 128.)`);
+// }
+
+// Is password length important?
 function firstquestion() {
   pwordlengthimportance = prompt(`Is the length of your password important? (Yes or No)`)
   console.log(pwordlengthimportance)
   return pwordlengthimportance;
   }
 
+  // Are special characters important?
   function secondquestion() {
-    specialcharimportance = prompt(`Should the password contain include lowercase, uppercase, numeric, and/or special characters? ('Yes' or 'No')`)
+    specialcharimportance = prompt(`Should the password contain include lowercase, uppercase, numeric, and/or special characters? ('Yes' or 'No')`);
     console.log(specialcharimportance)
     return specialcharimportance;
     }
@@ -61,29 +66,37 @@ function firstquestion() {
    var runem = function() {
     firstquestion();
     secondquestion(); 
+
+//   // How long would you like your password?
+// if (pwordlengthimportance === 'yes') {
+//   lengthchoice = prompt(`How long would you like your password to be? (Please input a number value between 8 and 128.)`);
+//   console.log(lengthchoice);
+// };
+
     if ((pwordlengthimportance === 'no') && (specialcharimportance === 'no')) {
       gengenerator();
-      console.log(genpassword);
+      alert(genpassword);
       return;
     }; 
 
     if ((pwordlengthimportance === 'yes') && (specialcharimportance === 'no')) {
       lengthgenerator();
-      console.log(lengthpassword);
+      alert(lengthpassword);
       return;
     };
 
     if ((pwordlengthimportance === 'no') && (specialcharimportance === 'yes')) {
       chargenerator();
-      console.log(charpassword);
+      alert(charpassword);
       return;
     };
 
     if ((pwordlengthimportance === 'yes') && (specialcharimportance === 'yes')) {
       password2generator();
-      console.log(password2);
+      alert(password2);
       return;
-    } else {
-      console.log(`Please input simple "yes" or "no" values, then try again.`)
+    } 
+    else {
+      alert(`Please input simple "yes" or "no" values, then try again.`)
     }
 }
