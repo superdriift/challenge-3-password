@@ -50,7 +50,7 @@ function password2generator() {
 
 // Is password length important?
 function firstquestion() {
-  pwordlengthimportance = prompt(`Is the length of your password important? (Yes or No)`)
+  pwordlengthimportance = prompt(`Would you like your password to be between 8 and 128 characters? (Yes or No)`)
   console.log(pwordlengthimportance)
   return pwordlengthimportance;
   }
