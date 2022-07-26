@@ -22,7 +22,7 @@ function gengenerator() {
 // Length Password Generator
 function lengthgenerator() {
   var options1 = 'abcdefghijklmnopqrstuvwxyz';
-  for (i = 8; i<=128; i++) {
+  for (i = 8; lengthpassword.length < lengthchoice; i++) {
     lengthpassword += options1.charAt(Math.floor(Math.random()*options1.length));
   };
 };
@@ -38,7 +38,7 @@ function chargenerator() {
 // Password 2.0 Generator
 function password2generator() {
   var options3 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()'
-  for (var i = 8; i <= 128; i++) {
+  for (var i = 0; password2.length < lengthchoice; i++) {
     password2 += options3.charAt(Math.floor(Math.random()*options3.length));
   }
 }
@@ -50,7 +50,7 @@ function password2generator() {
 
 // Is password length important?
 function firstquestion() {
-  pwordlengthimportance = prompt(`Would you like your password to be between 8 and 128 characters? (Yes or No)`)
+  pwordlengthimportance = prompt(`Is password length important? (Yes or No)`)
   console.log(pwordlengthimportance)
   return pwordlengthimportance;
   }
@@ -67,11 +67,11 @@ function firstquestion() {
     firstquestion();
     secondquestion(); 
 
-//   // How long would you like your password?
-// if (pwordlengthimportance === 'yes') {
-//   lengthchoice = prompt(`How long would you like your password to be? (Please input a number value between 8 and 128.)`);
-//   console.log(lengthchoice);
-// };
+      // How long would you like your password?
+    if (pwordlengthimportance === 'yes') {
+      lengthchoice = parseInt(prompt(`How long would you like your password to be? (Please input a number value between 8 and 128.)`));
+      console.log(lengthchoice);
+    };
 
     if ((pwordlengthimportance === 'no') && (specialcharimportance === 'no')) {
       gengenerator();
