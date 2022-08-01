@@ -50,15 +50,15 @@ function password2generator() {
 
 // Is password length important?
 function firstquestion() {
-  pwordlengthimportance = prompt(`Is password length important? (Yes or No)`)
-  console.log(pwordlengthimportance)
+  pwordlengthimportance = prompt(`Is password length important? (Yes or No)`).toLowerCase();
+  console.log(pwordlengthimportance);
   return pwordlengthimportance;
   }
 
   // Are special characters important?
   function secondquestion() {
-    specialcharimportance = prompt(`Should the password contain include lowercase, uppercase, numeric, and/or special characters? ('Yes' or 'No')`);
-    console.log(specialcharimportance)
+    specialcharimportance = prompt(`Should the password contain include lowercase, uppercase, numeric, and/or special characters? ('Yes' or 'No')`).toLowerCase();
+    console.log(specialcharimportance);
     return specialcharimportance;
     }
 
